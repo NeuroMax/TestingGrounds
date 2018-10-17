@@ -1,0 +1,30 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Character.h"
+#include "PatrolingGuard.generated.h"
+
+UCLASS()
+class TESTINGGROUNDS_API APatrolingGuard : public ACharacter
+{
+	GENERATED_BODY()
+
+public:
+	// Sets default values for this character's properties
+	APatrolingGuard();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY(EditInstanceOnly, Category = "Patrol Route")
+	TArray<AActor*> PatrolPointsCPP;
+
+};
